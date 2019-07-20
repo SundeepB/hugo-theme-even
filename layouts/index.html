@@ -3,13 +3,13 @@
 <section id="sectioned-articles" class="posts">
   {{ range sort .Site.Sections "Section" }}
     {{/* The first 2 characters are used for ordering and knocked off during display */}}
-    <h1>{{humanize (slicestr .Section 2)}}</h1>
+    <h2>{{humanize (slicestr .Section 2)}} ({{len (where (where .Site.Pages "Kind" "page") "Type" .Section)}})</h2>
 
     {{/* Display if there are at least 2, because the breaking into half logic
       fails if the second half is empty */}}
     {{if ge (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2}}
-    <div class="row card">
-      <div class="col-6">
+    <div class="row">
+      <div class="column">
         {{/* range if to loop, first selects the first N items */}}
         {{range (first (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section))}}
         <div>
@@ -18,7 +18,7 @@
         {{end}}
       </div>
 
-      <div class="col s6">
+      <div class="column">
         {{/* after selects the items after N */}}
         {{range (after (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section))}}
         <div>
@@ -27,6 +27,15 @@
         {{end}}
       </div>
 
+    {{else}}
+        <div class="column">
+          {{/* range if to loop, first selects the first N items */}}
+          {{range (where (where .Site.Pages "Kind" "page") "Type" .Section)}}
+          <div>
+            <a href="{{.RelPermalink}}">{{.Title}}</a>
+          </div>
+          {{end}}
+        </div>
     {{end}}
     </div>
 
