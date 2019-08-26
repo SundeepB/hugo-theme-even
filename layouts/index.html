@@ -5,22 +5,25 @@
     {{/* The first 2 characters are used for ordering and knocked off during display */}}
     <h2>{{humanize (slicestr .Section 2)}} ({{len (where (where .Site.Pages "Kind" "page") "Type" .Section)}})</h2>
 
-    {{/* Display if there are at least 2, because the breaking into half logic
+    {{/* Display if there are at least 2, because the breaking-into-half logic
       fails if the second half is empty */}}
     {{if ge (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2}}
     <div class="row">
+      
+      {{/*The orders are reversed to display in chronological order. This code can def be improved to read better*/}}
+      
       <div class="column">
-        {{/* range if to loop, first selects the first N items */}}
-        {{range (first (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section))}}
+        {{/* after selects the items after N */}}
+        {{range (after (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section)).Reverse}}
         <div>
           <a href="{{.RelPermalink}}">{{.Title}}</a>
         </div>
         {{end}}
       </div>
-
+      
       <div class="column">
-        {{/* after selects the items after N */}}
-        {{range (after (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section))}}
+        {{/* range if to loop, first selects the first N items */}}
+        {{range (first (div (len (where (where .Site.Pages "Kind" "page") "Type" .Section)) 2) (where (where .Site.Pages "Kind" "page") "Type" .Section)).Reverse}}
         <div>
           <a href="{{.RelPermalink}}">{{.Title}}</a>
         </div>
