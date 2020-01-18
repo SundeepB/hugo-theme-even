@@ -55,6 +55,9 @@
 <script>eruda.init();</script>
 {{- end -}}
 
+<script src="{{ .Site.BaseURL }}js/mermaid.min.js"></script>
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/mermaid.css">
+
 <!-- busuanzi -->
 {{- if .Site.Params.busuanzi.enable -}}
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
