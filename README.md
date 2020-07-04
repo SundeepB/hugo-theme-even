@@ -81,6 +81,10 @@ yarn build
 
 _You need to install **[Yarn](https://yarnpkg.com/)** and **[Node.js](https://nodejs.org/)** first._
 
+### Versions
+
+Using node version `11.x` (`11.15.0` to be exact) showed no errors with `yarn`. See [this](https://github.com/olOwOlo/hugo-theme-even/issues/215) 
+
 ## Update Theme
 
 ```bash
