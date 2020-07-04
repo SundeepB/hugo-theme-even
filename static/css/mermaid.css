@@ -1,0 +1,9 @@
+/* The default integration in mermaid uses the window.load event to start rendering. Also note that when rendering the width of lebale sare calucated of what width it bening meassured at the time.
+
+If your page has other fonts in its body those might be used instead of the mermaid font. Specifying the font in your styling is a workaround for this. 
+
+https://mermaidjs.github.io/#/usage?id=labels-out-of-bounds
+ */
+div.mermaid {
+        font-family: 'trebuchet ms', verdana, arial;
+}

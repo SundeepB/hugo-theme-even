@@ -55,8 +55,12 @@
 <script>eruda.init();</script>
 {{- end -}}
 
+<!-- mermaid JS-->
 <script src="{{ .Site.BaseURL }}js/mermaid.min.js"></script>
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/mermaid.css">
+
+<!-- custom CSS -->>
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.css">
 
 <!-- busuanzi -->
 {{- if .Site.Params.busuanzi.enable -}}
