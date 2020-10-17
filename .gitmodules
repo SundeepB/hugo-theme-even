@@ -1,0 +1,4 @@
+[submodule "static/remark"]
+	path = static/remark
+	url = https://github.com/SundeepB/RemarkPortable.git
+	branch = master
