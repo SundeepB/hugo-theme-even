@@ -2,4 +2,3 @@ node_modules/
 .idea/
 static/dist/*.min.js.map
 static/dist/*.min.css.map
-static/remark
