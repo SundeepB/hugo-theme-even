@@ -20,6 +20,14 @@ disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
+# Starting Hugo 0.6.0, this configuration is needed to enable rendering raw HTML from markdown
+# See http://www.ii.com/hugo-tips-fragments/#_markup
+# See https://stackoverflow.com/questions/63198652/hugo-shortcode-ignored-saying-raw-html-omitted
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [author]                  # essential                     # 必需
   name = "olOwOlo"
 

@@ -64,13 +64,13 @@ You can customize something for a single content in the content's front-matter. 
 
 This theme provides `center`,` right`, `left`,` music`, `admonition` shortcodes, and support `center`,` right`, `left` class for the built-in `figure`. See more information from [there](https://blog.olowolo.com/example-site/post/shortcodes/).
 
-## Theme Color 
+## Theme Color
 
 There are five built-in theme colors ( Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet ), you can config it by changing the `$theme-color-config` value in [`/src/css/_variable.scss`](https://github.com/olOwOlo/hugo-theme-even/blob/master/src/css/_variables.scss#L5-L8).
-    
+
 ## Build
 
-If you changed any file under `/src/`, you need to rebuild. 
+If you changed any file under `/src/`, you need to rebuild.
 ```bash
 cd ./themes/even/
 # install dependencies
@@ -83,7 +83,7 @@ _You need to install **[Yarn](https://yarnpkg.com/)** and **[Node.js](https://no
 
 ### Versions
 
-Using node version `11.x` (`11.15.0` to be exact) showed no errors with `yarn`. See [this](https://github.com/olOwOlo/hugo-theme-even/issues/215) 
+Using node version `11.x` (`11.15.0` to be exact) showed no errors with `yarn`. See [this](https://github.com/olOwOlo/hugo-theme-even/issues/215)
 
 ## Update Theme
 
@@ -101,3 +101,30 @@ Released under the [MIT](https://github.com/olOwOlo/hugo-theme-even/blob/master/
 - [ananke](https://github.com/budparr/gohugo-theme-ananke)
 - [hexo-theme-even](https://github.com/ahonn/hexo-theme-even)
 - [hugo-nuo](https://github.com/laozhu/hugo-nuo)
+
+## Remark slides
+
+Remark portable is added as a submodule to this theme available from the path `/static/remark`.
+
+This means, we can load remark from
+
+`http://<base_url>/remark`
+
+The script is configured to take the value from the parameter `pres` as source. The site can save the presentations anywhere under the `static` directory. For example, if the presentation is at
+
+`/static/presentation/example.md`
+
+it can be loaded from
+
+`http://<base_url>/remark?pres=/presentation/example.md`
+
+To embed the presentation inside a post, use an iframe inside the post
+
+```html
+<div>
+    <iframe src="/remark/?pres=/presentation/example.md" title="Test title" height=600 width=800></iframe>
+</div>
+```
+
+However, from Hugo 0.6.0, the default behavior is to omit any raw HTML found in markdown files.
+[Additional configuration](http://www.ii.com/hugo-tips-fragments/#_markup) is required for this to work from content pages.
